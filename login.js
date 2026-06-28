@@ -4,7 +4,6 @@ const { error } = require("node:console");
 const app = express();
 app.use(express.json());
 
-const usuarios = [];
 
 app.post('/usuario',(req,res) =>{
     const{nome,email,senha} = req.body;
@@ -26,5 +25,5 @@ app.post('',(req,res) =>{
 })
 
 app.get('',(req,res) =>{
-    res.send("")
+    res.send("sejam bem vindos", dados: {nome,email});
 })
