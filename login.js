@@ -6,7 +6,7 @@ app.use(express.json());
 
 const usuarios = [];
 
-app.post('/users',(req,res) =>{
+app.post('',(req,res) =>{
     const{nome,email,senha} = req.body;
     if(!nome || !email || !senha){
        return res.estatus(400).json({
@@ -18,7 +18,7 @@ app.post('/users',(req,res) =>{
     res.status(201).json({mensagem: "usuario criado com sucesso"});
 });
 
-app.post('/login',(req,res) =>{
+app.post('',(req,res) =>{
     const{email,senha} = req.body;
     if(!email || !senha){
         return req.estatus(400).json({
@@ -27,6 +27,6 @@ app.post('/login',(req,res) =>{
     }
 })
 
-app.get('/users',(req,res) =>{
+app.get('',(req,res) =>{
     res.send("sejam bem vindos", dados: {nome,email});
 })
