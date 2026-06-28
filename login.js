@@ -4,19 +4,27 @@ const { error } = require("node:console");
 const app = express();
 app.use(express.json());
 
-app.post('',(req,res) =>{
+const usuarios = [];
+
+app.post('/usuario',(req,res) =>{
     const{nome,email,senha} = req.body;
-    if(!nome,!email,!senha){
+    if(!nome || !email || !senha){
        return res.estatus(400).json({
         error: "todos os campos tem que estar preenchidos !"
        });
     }
+    res.status(201).json({mensagem: "usuario criado com sucesso"});
 });
 
 app.post('',(req,res) =>{
-
+    const{email,senha} = req.body;
+    if(!email || !senha){
+        return req.estatus(400).json({
+            error : "todos os campos tem que estar prechidos !"
+        })
+    }
 })
 
 app.get('',(req,res) =>{
-
+    res.send("")
 })
