@@ -19,7 +19,6 @@ app.post('/',(req,res) =>{
          res.send("emil já registrado");
     }
     res.status(201).json({mensagem: "usuario criado com sucesso"});
-    
 });
 
 app.get('/',(req,res)=> {
