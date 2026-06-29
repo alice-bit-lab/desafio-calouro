@@ -1,5 +1,5 @@
 const express = require("express");
-const userRoutas = require("./routes/login");
+const userRoutes = require("./routes/login");
 const { error } = require("node:console");
 const port = 3000;
 
@@ -21,6 +21,7 @@ app.post('/',(req,res) =>{
          res.send("emil já registrado");
     }
     res.status(201).json({mensagem: "usuario registrado com sucesso"});
+    usuarios.push(nome,email,senha);
 });
 
 app.get('/',(req,res)=> {
@@ -34,7 +35,7 @@ app.post('',(req,res) =>{
             error : "todos os campos tem que estar prechidos !"
         })
     }
-
+    
 })
 
 app.get('',(req,res) =>{
