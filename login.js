@@ -1,5 +1,5 @@
 const express = require("express");
-const userRoutes = require("./routes/login");
+const routes = require("./routes/login")
 const { error } = require("node:console");
 const port = 3000;
 
@@ -28,7 +28,7 @@ app.get('/',(req,res)=> {
     res.render('index')
 })
 
-app.post('',(req,res) =>{
+app.post('/login',(req,res) =>{
     const{email,senha} = req.body;
     if(!email || !senha){
         return res.estatus(400).json({
@@ -38,7 +38,7 @@ app.post('',(req,res) =>{
     
 })
 
-app.get('',(req,res) =>{
+app.get('/login',(req,res) =>{
     res.send("sejam bem vindos ",{nome,email});
 })
 
