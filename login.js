@@ -1,8 +1,9 @@
 const express = require("express");
 const userRoutas = require("./routes/login");
 const { error } = require("node:console");
-const app = express();
+const port = 3000;
 
+const app = express();
 app.use(express.json());
 
 const usuarios = [];
@@ -18,7 +19,7 @@ app.post('/',(req,res) =>{
     if(!umemaul){
          res.send("emil já registrado");
     }
-    res.status(201).json({mensagem: "usuario criado com sucesso"});
+    res.status(201).json({mensagem: "usuario registrado com sucesso"});
 });
 
 app.get('/',(req,res)=> {
@@ -32,8 +33,10 @@ app.post('',(req,res) =>{
             error : "todos os campos tem que estar prechidos !"
         })
     }
+
 })
 
 app.get('',(req,res) =>{
-    res.send("sejam bem vindos", dados: {nome,email});
+    res.send("sejam bem vindos ",{nome,email});
 })
+
