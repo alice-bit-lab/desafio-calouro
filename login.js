@@ -35,7 +35,9 @@ app.post('/login',(req,res) =>{
             error : "todos os campos tem que estar prechidos !"
         })
     }
-    
+    const umemaul = usuarios.find(iemail => iemail === email);
+    const umasenha = usuarios.find(isenha => isenha === senha);
+    res.render('')
 })
 
 app.get('/login',(req,res) =>{
