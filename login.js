@@ -5,6 +5,7 @@ const port = 3000;
 
 const app = express();
 app.use(express.json());
+app.use(userRoutas);
 
 const usuarios = [];
 
@@ -40,3 +41,6 @@ app.get('',(req,res) =>{
     res.send("sejam bem vindos ",{nome,email});
 })
 
+app.listen(port,()=>{
+    console.log("sevirdor rodando")
+});
