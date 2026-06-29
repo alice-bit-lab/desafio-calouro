@@ -37,7 +37,9 @@ app.post('/login',(req,res) =>{
     }
     const umemaul = usuarios.find(iemail => iemail === email);
     const umasenha = usuarios.find(isenha => isenha === senha);
-    res.render('')
+    if(!umasenha && !umasenha){
+        res.render('index')
+    }
 })
 
 app.get('/login',(req,res) =>{
