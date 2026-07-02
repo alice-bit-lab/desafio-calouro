@@ -8,7 +8,7 @@ app.use(express.json());
 const usuarios = [];
 
 app.post('/',(req,res) =>{
-    
+    res.render('index')
     const{nome,email,senha} = req.body;
     if(!nome || !email || !senha){
        return res.estatus(400).json({
