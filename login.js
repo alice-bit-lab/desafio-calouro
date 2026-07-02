@@ -1,15 +1,14 @@
 const express = require("express");
-const routes = require("./routes/login")
 const { error } = require("node:console");
 const port = 3000;
 
 const app = express();
 app.use(express.json());
-app.use(userRoutas);
 
 const usuarios = [];
 
 app.post('/',(req,res) =>{
+    
     const{nome,email,senha} = req.body;
     if(!nome || !email || !senha){
        return res.estatus(400).json({
