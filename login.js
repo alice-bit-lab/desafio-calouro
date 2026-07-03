@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 const usuarios = [];
 
 app.post('/.js',(req,res) =>{
-    res.render('index.ejs')
+    res.render('index.ejs');
     const{nome,email,senha} = req.body;
     if(!nome || !email || !senha){
        return res.estatus(400).json({
@@ -27,6 +27,10 @@ app.post('/.js',(req,res) =>{
     }   
     
 });
+
+app.get('/.js',(res,req) =>{
+    res.render('index.ejs');
+})
 
 app.get('/login.js',(req,res) =>{
    res.render('Login.ejs')
