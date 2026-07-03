@@ -1,9 +1,12 @@
 const express = require("express");
 const { error } = require("node:console");
-const bodyparser = require('body-parser')
+const bodyparser = require('body-parser');
+const path = require('path');
 const port = 3000;
 
 const app = express();
+app.set('view engine','ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
@@ -43,7 +46,7 @@ app.get('/login.js',(req,res) =>{
     const umemaul = usuarios.find(iemail => iemail === email);
     const umasenha = usuarios.find(isenha => isenha === senha);
     if(!umasenha && !umasenha){
-        res.render('')
+        res.send("login concluido");
     }
 })
 
