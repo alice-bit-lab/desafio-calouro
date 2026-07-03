@@ -1,9 +1,11 @@
 const express = require("express");
 const { error } = require("node:console");
+const bodyparser = require('body-parser')
 const port = 3000;
 
 const app = express();
 app.use(express.json());
+app.use(bodyparser.urlencoded({extended:true}));
 
 const usuarios = [];
 
@@ -17,17 +19,17 @@ app.post('/',(req,res) =>{
     }
     const umemaul = usuarios.find(iemail => iemail === email);
     if(!umemaul){
-         res.send("emil já registrado");
-    }
-    res.status(201).json({mensagem: "usuario registrado com sucesso"});
-    usuarios.push(nome,email,senha);
+         res.send("emil já registrado,tente de novo");
+         res.render('index');
+    }else{
+         usuarios.push(nome,email,senha);
+        res.render('login'); 
+    }   
+    
 });
 
-app.get('/',(req,res)=> {
-    res.render('index')
-})
-
-app.post('/login',(req,res) =>{
+app.get('/login',(req,res) =>{
+   res.render('Login')
     const{email,senha} = req.body;
     if(!email || !senha){
         return res.estatus(400).json({
@@ -37,7 +39,7 @@ app.post('/login',(req,res) =>{
     const umemaul = usuarios.find(iemail => iemail === email);
     const umasenha = usuarios.find(isenha => isenha === senha);
     if(!umasenha && !umasenha){
-        res.render('index')
+        res.render('')
     }
 })
 

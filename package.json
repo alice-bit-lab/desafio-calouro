@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/alice-bit-lab/desafio-calouro#readme",
   "dependencies": {
+    "body-parser": "^2.3.0",
     "express": "^5.2.1"
   }
 }
